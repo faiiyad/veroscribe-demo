@@ -77,7 +77,7 @@ The backend **auto-seeds** on first startup if no physicians exist in the databa
 
 ## Features
 
-### Patient Flow (`/book`)
+### Patient Flow (`/book` and `/user`)
 1. **Choose Physician** — browse cards for 4 mock physicians across specialties
 2. **Select Date & Time** — scrollable 14-day date strip with available time slots; booked slots are filtered out
 3. **Patient Details** — name, email (required), phone (optional), reason for visit
