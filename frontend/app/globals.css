@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-dm-sans: 'DM Sans', system-ui, sans-serif;
+  --color-cream: #F7F5F0;
+  --color-navy: #1A3C5E;
+  --color-teal: #2E8B7A;
+  --color-text: #1A1A2E;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-cream);
+  font-family: var(--font-dm-sans);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0ede8;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5bfb5;
+  border-radius: 3px;
+}
+
+/* ── Smooth transitions on interactive elements ── */
+button,
+a {
+  transition: all 0.15s ease;
+}
+
+/* ── Page entrance animation ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* ── Status badge styles ── */
+.badge-pending {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+
+.badge-confirmed {
+  background: #D1FAE5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+
+.badge-cancelled {
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
+/* ── Form input styles ── */
+.form-input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1.5px solid #E5E1D8;
+  border-radius: 8px;
+  font-family: var(--font-dm-sans);
+  font-size: 0.9375rem;
+  background: white;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input:focus {
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(46, 139, 122, 0.12);
+}
+
+.form-input::placeholder {
+  color: #B0A99F;
+}
+
+/* ── Card hover ── */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 60, 94, 0.1);
+}
