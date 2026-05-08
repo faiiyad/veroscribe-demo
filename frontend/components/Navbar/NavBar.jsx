@@ -38,10 +38,10 @@ export default function NavBar() {
 
       <div className="flex items-center gap-3">
         <Link
-          href="/book"
+          href="/user"
           className="light-sweep px-4 py-2 bg-black text-white rounded-md hover:opacity-80 transition"
         >
-          Book Now <span>→</span>
+          User <span>→</span>
         </Link>
 
         <Link

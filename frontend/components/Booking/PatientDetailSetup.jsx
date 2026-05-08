@@ -109,7 +109,7 @@ export default function PatientDetailsStep({
           onClick={onSubmit}
           disabled={submitting}
           className={`py-3 px-8 bg-black text-white border-none rounded-lg font-semibold text-[15px] transition-all duration-150 ease-in-out ${
-            submitting ? 'cursor-not-allowed opacity-70' : 'cursor-pointer opacity-100'
+            submitting ? 'cursor-not-allowed opacity-70' : 'light-sweep cursor-pointer opacity-100'
           }`}
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >

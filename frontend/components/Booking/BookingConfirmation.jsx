@@ -1,4 +1,5 @@
 import { formatDate, formatTime } from '../utils/component_utils';
+import Link from 'next/link';
 
 export default function BookingConfirmation({ confirmedBooking, onReset }) {
   const rows = [
@@ -67,13 +68,13 @@ export default function BookingConfirmation({ confirmedBooking, onReset }) {
         </div>
         </div>
 
-      <button
-        onClick={onReset}
-        className="light-sweep py-3 px-8 bg-[#000000] text-white border-none rounded-lg cursor-pointer font-bold text-[15px]"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
-      >
-        Book Another Appointment
-      </button>
+        <Link
+          href="/user"
+          className="light-sweep py-3 px-8 bg-[#000000] text-white border-none rounded-lg cursor-pointer font-bold text-[15px]"
+          style={{ fontFamily: "'DM Sans', sans-serif" }}
+        >
+          See all appointments
+        </Link>
 
     </div>
   );
