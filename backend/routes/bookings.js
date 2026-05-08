@@ -54,11 +54,12 @@ router.post('/', async (req, res) => {
 // GET /api/bookings — list all bookings (admin view)
 router.get('/', async (req, res) => {
   try {
-    const { status, physicianId, page = 1, limit = 50 } = req.query;
+    const { status, physicianId, patientEmail, page = 1, limit = 50 } = req.query;
 
     const filter = {};
     if (status) filter.status = status;
     if (physicianId) filter.physician = physicianId;
+    if (patientEmail) filter.patientEmail = patientEmail;
 
     const bookings = await Booking.find(filter)
       .populate('physician', 'name specialty avatarColor initials')
