@@ -95,6 +95,7 @@ The backend **auto-seeds** on first startup if no physicians exist in the databa
 ## Design Decisions & Tradeoffs
 
 - **No auth**: Both patient and admin views are open. In production, the admin route would require physician/staff login (JWT or session + OAuth2).
+- **Simulated Account**: Since there is no sessionID / cookies, the Patient Dashboard only shows the booking requests for one specific email: 'faiyad.masnoon@mail.utoronto.ca' (this can be changed in UserFlow.jsx)
 - **Auto-seed**: Backend seeds mock physicians on first run. In production, this would be done seperately during migration of data.
 - **Double-booking guard**: Both application-level check and MongoDB unique index prevent race conditions.
 
