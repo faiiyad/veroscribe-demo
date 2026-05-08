@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,13 +37,19 @@ export default function NavBar() {
 
 
       <div className="flex items-center gap-3">
-        <button className="light-sweep px-4 py-2 bg-black text-white rounded-md hover:opacity-80 transition">
+        <Link
+          href="/book"
+          className="light-sweep px-4 py-2 bg-black text-white rounded-md hover:opacity-80 transition"
+        >
           Book Now <span>→</span>
-        </button>
+        </Link>
 
-        <button className="light-sweep px-4 py-2 bg-black text-white rounded-md hover:opacity-80 transition">
-          Login <span>→</span>
-        </button>
+        <Link
+          href="/admin"
+          className="light-sweep px-4 py-2 bg-black text-white rounded-md hover:opacity-80 transition"
+        >
+          Admin <span>→</span>
+        </Link>
       </div>
     </nav>
   );

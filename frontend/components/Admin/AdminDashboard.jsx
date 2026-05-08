@@ -7,6 +7,21 @@ import { formatDate, formatTime } from '../utils/component_utils';
 import { StatCard, StatusBadge } from './StatusComponents';
 
 
+const Wrapper = ({ children }) => (
+  <div
+    style={{
+      minHeight: '100vh',
+      background: 'transparent',
+      padding: '7rem 1rem 2rem', // space for fixed navbar
+    }}
+  >
+    <main style={{ maxWidth: 1100, margin: '0 auto' }}>
+      {children}
+    </main>
+  </div>
+);
+
+
 export default function AdminDashboard() {
   const [bookings, setBookings] = useState([]);
   const [physicians, setPhysicians] = useState([]);
@@ -62,23 +77,11 @@ export default function AdminDashboard() {
     cancelled: bookings.filter(b => b.status === 'cancelled').length,
   };
 
-  const Wrapper = ({ children }) => (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'transparent',
-        padding: '7rem 1rem 2rem', // space for fixed navbar
-      }}
-    >
-      <main style={{ maxWidth: 1100, margin: '0 auto' }}>
-        {children}
-      </main>
-    </div>
-  );
+  
 
   return (
     <Wrapper>
-      <div style={{ minHeight: '100vh', background: '#F7F5F0', padding: '2rem 1rem' }}>
+      <div style={{ minHeight: '100vh', background: '#b7d4da', padding: '2rem 1rem' }}>
 
         <main style={{ maxWidth: 1100, margin: '0 auto' }} className="animate-fade-up">
           <div style={{ marginBottom: '1.75rem' }}>
