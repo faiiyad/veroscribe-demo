@@ -1,7 +1,7 @@
-import AdminDashboard from '../../components/AdminDashboard';
+import AdminDashboard from '../../components/Admin/AdminDashboard';
 
 export const metadata = {
-  title: 'Admin Dashboard — MedBook',
+  title: 'Dashboard',
 };
 
 export default function AdminPage() {

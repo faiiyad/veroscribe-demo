@@ -100,27 +100,13 @@ export default function BookingFlow() {
 
   // ── Shared layout wrapper ──────────────────────────────────────────────────
   const Wrapper = ({ children }) => (
-    <div style={{ minHeight: '100vh', background: '#F7F5F0', padding: '2rem 1rem' }}>
-      {/* Header */}
-      <header style={{ maxWidth: 780, margin: '0 auto 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: 8, background: '#1A3C5E',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-          </div>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 20, color: '#1A3C5E' }}>
-            MedBook
-          </span>
-        </div>
-        <Link href="/admin" style={{ fontSize: 13, color: '#6B7280', textDecoration: 'none', fontWeight: 500 }}>
-          Admin View →
-        </Link>
-      </header>
-
+    <div
+      style={{
+        minHeight: '100vh',
+        background: 'transparent',
+        padding: '7rem 1rem 2rem', // 👈 key change (top padding added)
+      }}
+    >
       <main style={{ maxWidth: 780, margin: '0 auto' }}>
         {children}
       </main>

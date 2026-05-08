@@ -1,7 +1,7 @@
 import BookingFlow from '../../components/Booking/BookingFlow';
 
 export const metadata = {
-  title: 'Book an Appointment — MedBook',
+  title: 'Booking',
 };
 
 export default function BookPage() {

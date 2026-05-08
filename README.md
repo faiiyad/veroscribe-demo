@@ -202,7 +202,7 @@ Double-booking prevention: compound unique index on `(physician, slotDate, slotT
 
 ## Design Decisions & Tradeoffs
 
-- **No auth**: Both patient and admin views are open. In production, the admin route would require physician/staff login (JWT or session).
+- **No auth**: Both patient and admin views are open. In production, the admin route would require physician/staff login (JWT or session + OAuth).
 - **Slot generation**: Computed dynamically on each request (physician schedule minus active bookings). Simple and always fresh; doesn't scale to thousands of concurrent users without caching.
 - **Auto-seed**: Backend seeds mock physicians on first run. In production, this would be a separate migration step.
 - **Denormalised physician info on bookings**: `physicianName` and `physicianSpecialty` are stored on the booking to remain readable if the physician record changes.
