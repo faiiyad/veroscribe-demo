@@ -2,6 +2,8 @@
 
 A full-stack patient appointment booking system with a multi-step patient flow, physician selection, slot management, and an admin dashboard for managing booking statuses.
 
+## ![DEMO VIDEO](https://youtu.be/B2IV6R18zCQ)
+
 ---
 
 ## Quick Start (Docker)
