@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { getBookings, getPhysicians, updateBookingStatus } from '../../lib/api';
+import { getBookings, getPhysicians, updateBookingStatus, deleteBooking } from '../../lib/api';
 import { StatCard } from './StatusComponents';
 import { DashboardHeader } from './DashboardHeader';
 import { DashboardFilters } from './DashboardFilters';
@@ -62,6 +62,16 @@ export default function AdminDashboard() {
     }
   }
 
+  async function handleDelete(id) {
+    if (!confirm('Permanently delete this booking?')) return;
+    try {
+      await deleteBooking(id);
+      setBookings(prev => prev.filter(b => b._id !== id));
+    } catch (err) {
+      alert(`Failed to delete: ${err.message}`);
+    }
+  }
+
   const counts = {
     total:     bookings.length,
     pending:   bookings.filter(b => b.status === 'pending').length,
@@ -107,6 +117,7 @@ export default function AdminDashboard() {
             loading={loading}
             updatingId={updatingId}
             onStatusChange={handleStatusChange}
+            onDelete = {handleDelete}
           />
 
           <p className="text-xs text-[#C5BFB5] text-center mt-6">

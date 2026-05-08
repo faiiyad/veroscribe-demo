@@ -1,7 +1,7 @@
 import { formatDate, formatTime } from '../utils/component_utils';
 import { StatusBadge } from './StatusComponents';
 
-export function BookingRow({ booking, updatingId, onStatusChange }) {
+export function BookingRow({ booking, updatingId, onStatusChange, onDelete }) {
   const isUpdating = updatingId === booking._id;
 
   return (
@@ -92,7 +92,15 @@ export function BookingRow({ booking, updatingId, onStatusChange }) {
             Restore
             </button>
         )}
-        </div>
+        <button
+          onClick={() => onDelete(booking._id)}
+          disabled={isUpdating}
+          style={{ '--sweep-color': '#FEE2E2' }}
+          className={`light-sweep py-[5px] px-2.5 rounded-md cursor-pointer text-xs border-[1.5px] border-[#FECACA] text-[#991B1B] font-semibold ${isUpdating ? 'opacity-60' : 'opacity-100'}`}
+        >
+          Delete
+        </button>
+      </div>
       </td>
 
     </tr>

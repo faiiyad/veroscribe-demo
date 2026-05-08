@@ -3,7 +3,7 @@ import { BookingRow } from './BookingRow';
 
 const HEADERS = ['Patient', 'Physician', 'Date & Time', 'Reason', 'Status', 'Actions'];
 
-export function BookingsTable({ bookings, loading, updatingId, onStatusChange }) {
+export function BookingsTable({ bookings, loading, updatingId, onStatusChange, onDelete }) {
   if (loading) {
     return (
       <div className="bg-white rounded-xl border-[1.5px] border-[#EAE6DE] overflow-hidden">
@@ -53,6 +53,7 @@ export function BookingsTable({ bookings, loading, updatingId, onStatusChange })
                 booking={booking}
                 updatingId={updatingId}
                 onStatusChange={onStatusChange}
+                onDelete = {onDelete}
               />
             ))}
           </tbody>

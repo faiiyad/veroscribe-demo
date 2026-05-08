@@ -37,3 +37,9 @@ export const updateBookingStatus = (id, status, adminNotes) =>
     method: 'PATCH',
     body: JSON.stringify({ status, ...(adminNotes ? { adminNotes } : {}) }),
   });
+
+export const deleteBooking = async (id) => {
+    const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Failed to delete booking');
+    return res.json();
+  };
