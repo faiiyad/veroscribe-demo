@@ -1,6 +1,6 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
-const Physician = require('./models/Physician');
+import 'dotenv/config';
+import mongoose from 'mongoose';
+import Physician from './models/Physician.js';
 
 const PHYSICIANS = [
   {
@@ -54,8 +54,10 @@ async function run() {
   }
 }
 
+import { pathToFileURL } from 'url';
+
 // Allow running directly: node seed.js
-if (require.main === module) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const MONGODB_URI = process.env.MONGODB_URI;
   if (!MONGODB_URI) {
     console.error('MONGODB_URI not set');
@@ -74,4 +76,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = { run };
+export { run };
