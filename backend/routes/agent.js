@@ -1,42 +1,20 @@
-import 'dotenv/config';
-import OpenAI from 'openai';
-import {Router} from 'express';
+import { Router } from "express";
+import generate from "../lance.js";
 
 const router = Router();
 
-const client = new OpenAI({
-  baseURL: 'https://api.featherless.ai/v1',
-  apiKey: process.env.FEATHERLESS_API_KEY,
+router.post("/generate", async (req, res) => {
+  const { symptom, prompt } = req.body;
+  try {
+    if (!symptom) {
+      return res.status(400).json({ error: "symptom is required" });
+    }
+    const response = await generate(symptom, prompt);
+    res.json({ reply: response });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred while generating content." });
+  }
 });
-
-async function generate() {
-    
-    const response = await client.chat.completions.create({
-    model: 'Qwen/Qwen3.5-4B',
-    messages: [
-        {
-        role: 'user',
-        content: [
-            { type: 'text', text: 'HI FRIEND' }
-        ],
-        },
-    ],
-    });
-
-    if (response){
-        return response.choices[0].message.content;
-    }
-}
-
-
-router.get("/generate", async (req, res) => {
-    try {
-        const response = await generate();
-        res.send(response);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("An error occurred while generating content.");
-    }
-})
 
 export default router;

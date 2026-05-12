@@ -43,3 +43,6 @@ export const deleteBooking = async (id) => {
     if (!res.ok) throw new Error('Failed to delete booking');
     return res.json();
   };
+
+export const sendChatMessage = (payload) =>
+  request('/agent/generate', { method: 'POST', body: JSON.stringify(payload) });
