@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const bookingSchema = new mongoose.Schema(
   {
@@ -43,4 +43,4 @@ const bookingSchema = new mongoose.Schema(
 // Compound index to prevent double-booking
 bookingSchema.index({ physician: 1, slotDate: 1, slotTime: 1 }, { unique: true });
 
-module.exports = mongoose.model('Booking', bookingSchema);
+export default mongoose.model('Booking', bookingSchema);

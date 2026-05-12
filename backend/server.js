@@ -1,10 +1,11 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import 'dotenv/config';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
-const physicianRoutes = require('./routes/physicians');
-const bookingRoutes = require('./routes/bookings');
+import physicianRoutes from './routes/physicians.js';
+import bookingRoutes from './routes/bookings.js';
+import agentRoutes from './routes/agent.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -23,6 +24,7 @@ app.use((req, _res, next) => {
 // ── Routes ────────────────────────────────────────────────────────────────────
 app.use('/api/physicians', physicianRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/agent', agentRoutes);
 
 // Health check
 app.get('/api/health', (_req, res) => {
@@ -59,11 +61,12 @@ mongoose
     console.log('✅  Connected to MongoDB Atlas');
 
     // Auto-seed on first run if no physicians exist
-    const Physician = require('./models/Physician');
+    const { default: Physician } = await import('./models/Physician.js');
     const count = await Physician.countDocuments();
     if (count === 0) {
       console.log('🌱  No physicians found — running seed...');
-      await require('./seed').run();
+      const { run } = await import('./seed.js');
+      await run();
     }
 
     app.listen(PORT, () => {

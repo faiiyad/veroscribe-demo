@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import Booking from '../models/Booking.js';
+import Physician from '../models/Physician.js';
+
 const router = express.Router();
-const Booking = require('../models/Booking');
-const Physician = require('../models/Physician');
 
 // POST /api/bookings — create a new booking
 router.post('/', async (req, res) => {
@@ -124,4 +125,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

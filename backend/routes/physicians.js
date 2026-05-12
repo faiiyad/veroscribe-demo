@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import Physician from '../models/Physician.js';
+import Booking from '../models/Booking.js';
+
 const router = express.Router();
-const Physician = require('../models/Physician');
-const Booking = require('../models/Booking');
 
 // GET /api/physicians — list all active physicians
 router.get('/', async (req, res) => {
@@ -70,4 +71,4 @@ router.get('/:id/slots', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
