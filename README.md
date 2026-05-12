@@ -80,10 +80,11 @@ The backend **auto-seeds** on first startup if no physicians exist in the databa
 ### Patient Flow (`/book` and `/user`)
 1. **Choose Physician** — browse cards for 4 mock physicians across specialties
 2. **Select Date & Time** — scrollable 14-day date strip with available time slots; booked slots are filtered out
-3. **Patient Details** — name, email (required), phone (optional), reason for visit
-4. **Confirmation** — booking summary with pending status and reference ID
-5. **Patient Dashboard** - review all your confirmed, pending and cancelled bookings in one place
-6. **Polling** - Patient dashboard auto updates to reflect changes in booking status
+3. **RAG Chat Agent** - chat agent that uses RAG to find the best doctor for you
+4. **Patient Details** — name, email (required), phone (optional), reason for visit
+5. **Confirmation** — booking summary with pending status and reference ID
+6. **Patient Dashboard** - review all your confirmed, pending and cancelled bookings in one place
+7. **Polling** - Patient dashboard auto updates to reflect changes in booking status
 
 ### Admin Dashboard (`/admin`)
 - Summary cards: total, pending, confirmed, cancelled counts
@@ -103,5 +104,5 @@ The backend **auto-seeds** on first startup if no physicians exist in the databa
 ## Future improvements
 
 - **Auth**: implement auth using sessions (passportjs + OAuth2), allowing personal accounts and preventing unwanted access
-- **Chatbot / Chat system**: A chatbot that would guide the patient into selecting the most appropriate doctor. In serious cases, a trained employee could take over if needed.
+- **Chatbot / Chat system**: Upgrade the chat to allow full booking routes, as well as cancellations or re-books.
 - **Auto updates via websockets / SSE**: to ensure that status changes / bookings are updated instantaneously without need of polling. 

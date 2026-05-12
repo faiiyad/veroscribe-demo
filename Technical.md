@@ -57,6 +57,19 @@ Browser
 | PATCH | `/api/bookings/:id/status` | Update booking status |
 | DELETE | `/api/bookings/:id` | Hard delete a booking |
 
+### Agent
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/agent/generate` | Generate AI-powered symptom analysis and recommendations |
+
+#### POST `/api/agent/generate` body
+```json
+{
+  "symptom": "fever and cough",
+  "prompt": "Optional custom prompt for the AI model"
+}
+```
+
 #### POST `/api/bookings` body
 ```json
 {
